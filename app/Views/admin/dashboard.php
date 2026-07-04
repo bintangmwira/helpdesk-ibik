@@ -22,7 +22,6 @@
             color: #333;
         }
 
-        /* Navbar */
         nav {
             background: linear-gradient(135deg, #4A154B 0%, #2C0630 100%);
             color: white;
@@ -39,9 +38,10 @@
             gap: 12px;
         }
 
-        .nav-logo i {
-            font-size: 24px;
-            color: #ffc107;
+        .nav-logo img {
+            width: 180px;
+            height: 50px;
+            object-fit: contain;
         }
 
         .nav-logo h1 {
@@ -173,9 +173,20 @@
             font-size: 22px;
         }
 
-        .icon-blue { background: #e0f2fe; color: #0284c7; }
-        .icon-yellow { background: #fef3c7; color: #d97706; }
-        .icon-green { background: #dcfce7; color: #16a34a; }
+        .icon-blue {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+
+        .icon-yellow {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .icon-green {
+            background: #dcfce7;
+            color: #16a34a;
+        }
 
         /* Panel Info */
         .content-panel {
@@ -223,11 +234,12 @@
 
     <nav>
         <div class="nav-logo">
-            <i class="fa-solid fa-headset"></i>
-            <h1>Helpdesk IBIK</h1>
+            <img src="<?= base_url('assets/images/logo-helpdesk-putih.png') ?>" alt="Logo Helpdesk">
         </div>
+
         <div class="nav-profile">
             <span>Halo, <?= esc(session()->get('nama')) ?></span>
+
             <a href="<?= base_url('logout') ?>" class="btn-logout">
                 <i class="fa-solid fa-right-from-bracket"></i> Keluar
             </a>
@@ -294,10 +306,6 @@
                 <tr>
                     <td class="label">Peran (Role)</td>
                     <td><span style="font-weight: 600; color: #4A154B; text-transform: uppercase;"><?= esc(session()->get('role')) ?></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Status Koneksi Database</td>
-                    <td><span style="color: #16a34a; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Terhubung</span></td>
                 </tr>
             </table>
         </div>

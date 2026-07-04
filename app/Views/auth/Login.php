@@ -7,20 +7,18 @@
 
    <link rel="stylesheet" href="<?= base_url('assets/css/style.css?v=' . time()) ?>">
     
-    <!-- Icons -->
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
 
-    <!-- LEFT (Sisi Ungu - Muncul di Desktop) -->
     <div class="left">
         <div class="overlay"></div>
         <div class="content">
 
             <div class="logo">
-                <!-- Menggunakan Logo Putih dari gambar image_5f8d04.png -->
                 <img src="<?= base_url('assets/images/logo-helpdesk-putih.png') ?>" alt="IBIK Helpdesk Logo" class="brand-img-white">
             </div>
 
@@ -36,13 +34,10 @@
         </div>
     </div>
 
-    <!-- RIGHT (Sisi Form - Responsif) -->
     <div class="right">
 
-        <!-- Form dialirkan ke proses login CodeIgniter asli -->
         <form class="login-box" action="<?= base_url('login/process') ?>" method="post">
 
-            <!-- Logo Ungu muncul di atas form hanya ketika dibuka di HP -->
             <div class="mobile-logo-container">
                 <img src="<?= base_url('assets/images/logo-helpdesk-ungu.png') ?>" alt="IBIK Helpdesk Logo" class="brand-img-purple">
             </div>
@@ -53,8 +48,6 @@
                 Silakan login menggunakan akun mahasiswa
                 untuk mengakses layanan Helpdesk IBIK.
             </p>
-
-            <!-- Menampilkan pesan error validasi/salah password dari CI -->
             <?php if(session()->getFlashdata('error')) : ?>
                 <div class="alert-error">
                     <?= session()->getFlashdata('error') ?>
@@ -89,7 +82,6 @@
 
 </div>
 
-<!-- Jika ingin menggunakan interaksi JS tambahan -->
 <script src="<?= base_url('js/script.js') ?>"></script>
 
 </body>

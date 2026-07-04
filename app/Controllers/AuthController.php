@@ -9,7 +9,6 @@ class AuthController extends BaseController
 {
     public function index()
     {
-        // Check if already logged in
         if (session()->get('logged_in')) {
             $role = session()->get('role');
             if ($role === 'admin') {
@@ -30,19 +29,17 @@ class AuthController extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        // Simple validation
+
         if (empty($email) || empty($password)) {
             $session->setFlashdata('error', 'Email dan password harus diisi.');
             return redirect()->back()->withInput();
         }
 
-        // Find user by email
         $user = $model->where('email', $email)->first();
 
         if ($user) {
-            // Verify password
+
             if (password_verify($password, $user['password'])) {
-                // Set session data
                 $session->set([
                     'id_user'   => $user['id_user'],
                     'npm'       => $user['npm'],
@@ -52,7 +49,6 @@ class AuthController extends BaseController
                     'logged_in' => true,
                 ]);
 
-                // Redirect based on role
                 if ($user['role'] === 'admin') {
                     return redirect()->to('admin/dashboard');
                 } else {

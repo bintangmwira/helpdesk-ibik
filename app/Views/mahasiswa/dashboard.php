@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Mahasiswa - Helpdesk IBIK</title>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -39,9 +42,10 @@
             gap: 12px;
         }
 
-        .nav-logo i {
-            font-size: 24px;
-            color: #ffc107;
+        .nav-logo img {
+            width: 180px;
+            height: 50px;
+            object-fit: contain;
         }
 
         .nav-logo h1 {
@@ -173,9 +177,20 @@
             font-size: 22px;
         }
 
-        .icon-blue { background: #e0f2fe; color: #0284c7; }
-        .icon-yellow { background: #fef3c7; color: #d97706; }
-        .icon-green { background: #dcfce7; color: #16a34a; }
+        .icon-blue {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+
+        .icon-yellow {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .icon-green {
+            background: #dcfce7;
+            color: #16a34a;
+        }
 
         /* Panel Info */
         .content-panel {
@@ -223,11 +238,12 @@
 
     <nav>
         <div class="nav-logo">
-            <i class="fa-solid fa-headset"></i>
-            <h1>Helpdesk IBIK</h1>
+            <img src="<?= base_url('assets/images/logo-helpdesk-putih.png') ?>" alt="Logo Helpdesk">
         </div>
+
         <div class="nav-profile">
             <span>Halo, <?= esc(session()->get('nama')) ?></span>
+
             <a href="<?= base_url('logout') ?>" class="btn-logout">
                 <i class="fa-solid fa-right-from-bracket"></i> Keluar
             </a>
@@ -235,20 +251,28 @@
     </nav>
 
     <div class="dashboard-container">
+
         <div class="welcome-card">
             <div class="welcome-text">
                 <h2>Selamat Datang, <?= esc(session()->get('nama')) ?>!</h2>
-                <p>Anda masuk sebagai Mahasiswa. Gunakan portal ini untuk melaporkan kendala akademik atau non-akademik Anda.</p>
+                <p>
+                    Anda masuk sebagai Mahasiswa. Gunakan portal ini untuk
+                    melaporkan kendala akademik atau non-akademik Anda.
+                </p>
+
                 <div class="badge-role">
-                    <i class="fa-solid fa-user-graduate"></i> <?= esc(session()->get('role')) ?>
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <?= esc(session()->get('role')) ?>
                 </div>
             </div>
+
             <div style="font-size: 70px; color: #4A154B; opacity: 0.15; padding-right: 15px;">
                 <i class="fa-solid fa-graduation-cap"></i>
             </div>
         </div>
 
         <div class="stats-grid">
+
             <div class="stat-card">
                 <div class="stat-info">
                     <h3>Aduan Saya</h3>
@@ -258,6 +282,7 @@
                     <i class="fa-solid fa-paper-plane"></i>
                 </div>
             </div>
+
             <div class="stat-card">
                 <div class="stat-info">
                     <h3>Sedang Diproses</h3>
@@ -267,6 +292,7 @@
                     <i class="fa-solid fa-spinner"></i>
                 </div>
             </div>
+
             <div class="stat-card">
                 <div class="stat-info">
                     <h3>Selesai Ditanggapi</h3>
@@ -276,31 +302,33 @@
                     <i class="fa-solid fa-envelope-open-text"></i>
                 </div>
             </div>
+
         </div>
 
         <div class="content-panel">
             <div class="panel-header">
                 <h3>Informasi Akademik</h3>
             </div>
+
             <table class="user-details-table">
                 <tr>
                     <td class="label">Nama Lengkap</td>
                     <td><?= esc(session()->get('nama')) ?></td>
                 </tr>
+
                 <tr>
                     <td class="label">NPM (Nomor Pokok Mahasiswa)</td>
                     <td><strong><?= esc(session()->get('npm')) ?></strong></td>
                 </tr>
+
                 <tr>
                     <td class="label">Alamat Email</td>
                     <td><?= esc(session()->get('email')) ?></td>
                 </tr>
-                <tr>
-                    <td class="label">Status Koneksi Database</td>
-                    <td><span style="color: #16a34a; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Terhubung</span></td>
-                </tr>
+
             </table>
         </div>
+
     </div>
 
 </body>
