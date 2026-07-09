@@ -20,6 +20,11 @@ class CreateLaporanTable extends Migration
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
+            'nama_pelapor' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 100,
+                'null'       => false,
+            ],
             'judul_laporan' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 150,
@@ -35,6 +40,11 @@ class CreateLaporanTable extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
                 'null'       => true,
+            ],
+            'prioritas' => [
+                'type'       => 'ENUM',
+                'constraint' => ['rendah', 'sedang', 'tinggi'],
+                'default'    => 'rendah',
             ],
             'status' => [
                 'type'       => 'ENUM',
